@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://bnm3n0p5kx6yf"]
+
+[ext_resource type="Script" uid="uid://bytm4pqfh4psj" path="res://scripts/grass.gd" id="1_3kunl"]
+[ext_resource type="PackedScene" uid="uid://cm0hbw6aepk3t" path="res://scenes/objects/thorne.tscn" id="1_yarb5"]
+[ext_resource type="PackedScene" uid="uid://b6co3mjbwrko8" path="res://scenes/objects/box.tscn" id="2_3kunl"]
+[ext_resource type="PackedScene" uid="uid://bojg0cccsoi18" path="res://scenes/player.tscn" id="2_u68v2"]
+
+[sub_resource type="Gradient" id="Gradient_mlfo1"]
+offsets = PackedFloat32Array(0.9831731, 1)
+colors = PackedColorArray(0.16470589, 0.16470589, 0.16470589, 1, 0.16470589, 0.16470589, 0.16470589, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_mlfo1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntbkr"]
+size = Vector2(78, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub7e"]
+size = Vector2(1177.5, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i75m2"]
+size = Vector2(1177, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trhxe"]
+size = Vector2(72, 808.5)
+
+[node name="Grass" type="Node2D" unique_id=82549603]
+script = ExtResource("1_3kunl")
+
+[node name="Player" parent="." unique_id=1933838619 instance=ExtResource("2_u68v2")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1940134414]
+position = Vector2(576, 320)
+scale = Vector2(17.984375, 10.140625)
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=412141993]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=576210888]
+position = Vector2(-32, 320)
+shape = SubResource("RectangleShape2D_ntbkr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1182011156]
+position = Vector2(577.25, -29)
+shape = SubResource("RectangleShape2D_rub7e")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=1804267056]
+position = Vector2(574, 661)
+shape = SubResource("RectangleShape2D_i75m2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=1385351925]
+position = Vector2(1187, 321)
+shape = SubResource("RectangleShape2D_trhxe")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1920728806]
+position = Vector2(928, 96)
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=127915148]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=1175143874]
+position = Vector2(288, 96)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1491255018]
+position = Vector2(928, 96)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=2067474660]
+position = Vector2(96, 416)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=583040268]
+position = Vector2(608, 224)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPoints" unique_id=2092154972]
+position = Vector2(736, 544)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPoints" unique_id=974376745]
+position = Vector2(1056, 352)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnPoints" unique_id=1048919935]
+position = Vector2(416, 608)
+
+[node name="Objects" type="Node2D" parent="." unique_id=1944299561]
+
+[node name="Thorne" parent="Objects" unique_id=1642012223 instance=ExtResource("1_yarb5")]
+position = Vector2(160, 288)
+
+[node name="Thorne" parent="Objects/Thorne" unique_id=997781634 instance=ExtResource("1_yarb5")]
+position = Vector2(64, 0)
+
+[node name="Thorne" parent="Objects/Thorne/Thorne" unique_id=80209364 instance=ExtResource("1_yarb5")]
+position = Vector2(0, 192)
+
+[node name="Thorne" parent="Objects/Thorne/Thorne/Thorne" unique_id=1438558849 instance=ExtResource("1_yarb5")]
+position = Vector2(64, 0)
+
+[node name="Thorne" parent="Objects/Thorne/Thorne/Thorne/Thorne" unique_id=1963551353 instance=ExtResource("1_yarb5")]
+position = Vector2(256, -64)
+
+[node name="Thorne" parent="Objects/Thorne/Thorne/Thorne/Thorne/Thorne" unique_id=582924043 instance=ExtResource("1_yarb5")]
+position = Vector2(64, 0)
+
+[node name="Thorne" parent="Objects/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne" unique_id=564699916 instance=ExtResource("1_yarb5")]
+position = Vector2(-64, -320)
+
+[node name="Thorne" parent="Objects/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne" unique_id=656034868 instance=ExtResource("1_yarb5")]
+position = Vector2(64, 0)
+
+[node name="Thorne2" parent="Objects/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne" unique_id=1794482831 instance=ExtResource("1_yarb5")]
+position = Vector2(384, 256)
+
+[node name="Thorne" parent="Objects/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne/Thorne2" unique_id=310684499 instance=ExtResource("1_yarb5")]
+position = Vector2(128, -128)
+
+[node name="Box" parent="Objects" unique_id=602930244 instance=ExtResource("2_3kunl")]
+position = Vector2(96, 96)
+
+[node name="Box2" parent="Objects" unique_id=739633448 instance=ExtResource("2_3kunl")]
+position = Vector2(96, 160)
+
+[node name="Box3" parent="Objects" unique_id=765625569 instance=ExtResource("2_3kunl")]
+position = Vector2(96, 224)
+
+[node name="Box4" parent="Objects" unique_id=1230156982 instance=ExtResource("2_3kunl")]
+position = Vector2(96, 288)
+
+[node name="Box5" parent="Objects" unique_id=2073021848 instance=ExtResource("2_3kunl")]
+position = Vector2(288, 288)
+
+[node name="Box6" parent="Objects" unique_id=1169584256 instance=ExtResource("2_3kunl")]
+position = Vector2(352, 288)
+
+[node name="Box7" parent="Objects" unique_id=258727275 instance=ExtResource("2_3kunl")]
+position = Vector2(32, 608)
+
+[node name="Box8" parent="Objects" unique_id=713244599 instance=ExtResource("2_3kunl")]
+position = Vector2(224, 544)
+
+[node name="Box9" parent="Objects" unique_id=1962772607 instance=ExtResource("2_3kunl")]
+position = Vector2(288, 544)
+
+[node name="Box10" parent="Objects" unique_id=1592737675 instance=ExtResource("2_3kunl")]
+position = Vector2(544, 608)
+
+[node name="Box11" parent="Objects" unique_id=1361486110 instance=ExtResource("2_3kunl")]
+position = Vector2(608, 608)
+
+[node name="Box12" parent="Objects" unique_id=56829769 instance=ExtResource("2_3kunl")]
+position = Vector2(480, 416)
+
+[node name="Box13" parent="Objects" unique_id=2092771085 instance=ExtResource("2_3kunl")]
+position = Vector2(928, 480)
+
+[node name="Box14" parent="Objects" unique_id=507595964 instance=ExtResource("2_3kunl")]
+position = Vector2(928, 544)
+
+[node name="Box15" parent="Objects" unique_id=28363861 instance=ExtResource("2_3kunl")]
+position = Vector2(992, 480)
+
+[node name="Box16" parent="Objects" unique_id=84835102 instance=ExtResource("2_3kunl")]
+position = Vector2(864, 480)
+
+[node name="Box17" parent="Objects" unique_id=888900919 instance=ExtResource("2_3kunl")]
+position = Vector2(928, 416)
+
+[node name="Box18" parent="Objects" unique_id=677224173 instance=ExtResource("2_3kunl")]
+position = Vector2(1120, 608)
+
+[node name="Box19" parent="Objects" unique_id=450259422 instance=ExtResource("2_3kunl")]
+position = Vector2(1056, 160)
+
+[node name="Box20" parent="Objects" unique_id=766471166 instance=ExtResource("2_3kunl")]
+position = Vector2(1056, 96)
+
+[node name="Box21" parent="Objects" unique_id=1606046613 instance=ExtResource("2_3kunl")]
+position = Vector2(736, 96)
+
+[node name="Box22" parent="Objects" unique_id=2095273519 instance=ExtResource("2_3kunl")]
+position = Vector2(800, 96)
+
+[node name="Box23" parent="Objects" unique_id=387358282 instance=ExtResource("2_3kunl")]
+position = Vector2(800, 160)
+
+[node name="Box24" parent="Objects" unique_id=1579324706 instance=ExtResource("2_3kunl")]
+position = Vector2(672, 96)

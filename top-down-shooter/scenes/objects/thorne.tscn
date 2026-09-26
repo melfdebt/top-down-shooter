@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cm0hbw6aepk3t"]
+
+[ext_resource type="Script" uid="uid://byu7dfrcuyf2j" path="res://scripts/thorne.gd" id="1_a0rhj"]
+
+[sub_resource type="Gradient" id="Gradient_hu6cg"]
+colors = PackedColorArray(0.99215686, 0.8235294, 0, 1, 0.53672963, 0.45746112, 0.013042952, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_hu6cg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub7e"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntbkr"]
+size = Vector2(80, 80)
+
+[node name="Thorne" type="StaticBody2D" unique_id=1642012223]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_a0rhj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=962821505]
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=750183621]
+light_mask = 16
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_rub7e")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=235987330]
+visibility_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1465532357]
+visibility_layer = 16
+shape = SubResource("RectangleShape2D_ntbkr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

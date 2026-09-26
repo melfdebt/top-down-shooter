@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://brvaohi2em75m"]
+
+[ext_resource type="Script" uid="uid://7nrxyencgar1" path="res://scripts/enemy_bullet.gd" id="1_d2qol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub7e"]
+size = Vector2(21, 20)
+
+[sub_resource type="Gradient" id="Gradient_6qi02"]
+colors = PackedColorArray(0.330767, 0, 0, 1, 0.14044744, 0.14044744, 0.14044744, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_6qi02")
+width = 16
+height = 16
+fill_to = Vector2(0.8350694, 0.6614583)
+
+[node name="Enemy_bullet" type="Area2D" unique_id=955791141]
+collision_layer = 8
+collision_mask = 17
+script = ExtResource("1_d2qol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1230640850]
+light_mask = 8
+visibility_layer = 17
+shape = SubResource("RectangleShape2D_rub7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959340992]
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=151444094]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

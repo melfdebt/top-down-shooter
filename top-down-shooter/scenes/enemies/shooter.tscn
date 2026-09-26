@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bjqqay22jonjw"]
+
+[ext_resource type="Script" uid="uid://dl5b704f48mrk" path="res://scripts/shooter.gd" id="1_tuqsv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntbkr"]
+size = Vector2(64, 63)
+
+[sub_resource type="Gradient" id="Gradient_vcra7"]
+offsets = PackedFloat32Array(0, 0.78125)
+colors = PackedColorArray(0.99215686, 0, 0, 1, 0.078431375, 0.078431375, 0.078431375, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_vcra7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub7e"]
+size = Vector2(80, 80)
+
+[node name="Shooter" type="CharacterBody2D" unique_id=1125391304]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_tuqsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461797399]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ntbkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566629960]
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=332277724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1553982688]
+light_mask = 2
+visibility_layer = 17
+shape = SubResource("RectangleShape2D_rub7e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
